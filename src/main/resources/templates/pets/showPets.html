@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pets</title>
+	<link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+	<h1>Pets</h1>
+	<img th:src="@{/images/Pets.jpg}"/><br/>
+	<a th:href="@{/pets/new}">Add new pet</a>
+	<div th:each="pet : ${pets}">
+		<p th:text="${pet.id} + '. ' + ${pet.name}"/>
+	</div>
+</body>
+</html>

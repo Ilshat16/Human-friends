@@ -17,4 +17,8 @@ public class PetsService {
 	public Iterable<Pets> findAll() {
 		return petRepository.findAll();
 	}
+	
+	public void save(Pets pet) {
+		petRepository.save(pet);
+	}
 }

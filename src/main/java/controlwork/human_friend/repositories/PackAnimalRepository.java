@@ -3,9 +3,9 @@ package controlwork.human_friend.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import controlwork.human_friend.models.PackAnimal;
+import controlwork.human_friend.models.PackAnimals;
 
 @Repository
-public interface PackAnimalRepository extends CrudRepository<PackAnimal, Long>{
+public interface PackAnimalRepository extends CrudRepository<PackAnimals, Long>{
 
 }

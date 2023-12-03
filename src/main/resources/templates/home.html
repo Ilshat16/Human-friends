@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Human friends</title>
+	<meta charset="UTF-8">
+	<title>Human friends</title>
+	<link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
-
-<div th:each="pet : ${pets}">
-	<a th:text="${pet.getId()} + '. ' + ${pet.getName()}">VALUE</a>
-</div>
+	<h1>Human friends</h1>
+	<img th:src="@{/images/Human_friends.jpg}"/><br/>
+	<a th:href="@{/pets}">Pets</a><br/>
+	<a th:href="@{/pack_animals}">Pack animals</a>
 
 </body>
 </html>

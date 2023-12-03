@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New pack animal</title>
+</head>
+<body>
+	<form th:method="POST" th:action="@{/pack_animals}" th:object="${packAnimal}">
+		<input type="text" th:field="*{name}" id="name"/>
+		<label for="name">Enter name: </label><br/>
+		
+		<input type="text" th:field="*{type}" id="type"/>
+		<label for="type">Enter type: </label><br/>
+		
+		<input type="text" th:field="*{birthDate}" id="birthDate"/>
+		<label for="birthDate">Enter birth date: </label><br/>
+		
+		<input type="text" th:field="*{commands}" id="name"/>
+		<label for="commands">Enter commands: </label><br/>
+		
+		<input type="submit" value="Create"/>
+		
+	</form>
+</body>
+</html>
