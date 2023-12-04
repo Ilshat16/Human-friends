@@ -39,7 +39,7 @@ public class PackAnimalsController {
 	
 	@PostMapping
 	public String savePackAnimal(PackAnimals packAnimals) {
-		packAnimalsServise.save(packAnimals);
+		packAnimalsServise.savePackAnimal(packAnimals);
 		return "redirect:/pack_animals";
 	}
 	
@@ -47,6 +47,18 @@ public class PackAnimalsController {
 	public String deletePackAnimal(@PathVariable("id") long id) {
 		PackAnimals packAnimal = packAnimalsServise.findById(id);
 		packAnimalsServise.deletePackAnimal(packAnimal);
+		return "redirect:/pack_animals";
+	}
+	
+	@GetMapping("/{id}/edit")
+	public String showEditPackAnimalPage(@PathVariable("id") long id, Model model) {
+		model.addAttribute("packAnimal", packAnimalsServise.findById(id));
+		return "packanimals/editPackAnimal";
+	}
+	
+	@PostMapping("/{id}/edit")
+	public String updatePackAnimal(@PathVariable("id") long id, PackAnimals packAnimal) {
+		packAnimalsServise.updatePackAnimal(packAnimal, id);
 		return "redirect:/pack_animals";
 	}
 }

@@ -10,6 +10,10 @@
 	<div th:text="'Birthdate: ' + ${packAnimal.birthDate}"/>
 	<div th:text="'Commands: ' + ${packAnimal.commands}"/>
 	
+	<form th:method="GET" th:action="@{/pack_animals/{id}/edit(id=${packAnimal.id})}">
+		<input type="submit" value="Edit"/>
+	</form>
+	
 	<form th:method="DELETE" th:action="@{/pack_animals/{id}(id=${packAnimal.id})}")>
 		<input type="submit" value="Delete"/>
 	</form>

@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New pet</title>
+<title>Edit pet</title>
 </head>
 <body>
-	<form th:method="POST" th:action="@{/pets}" th:object="${pet}">
+	<form th:method="PATCH" th:action="@{/pets/{id}/edit(id=${pet.id})}" th:object="${pet}">
 		<label for="name">Enter name: </label>
 		<input type="text" th:field="*{name}" id="name"/><br/>
 
@@ -18,7 +18,7 @@
 		<label for="commands">Enter commands: </label>
 		<input type="text" th:field="*{commands}" id="name"/><br/>
 		
-		<input type="submit" value="Create"/>
+		<input type="submit" value="Update"/>
 		
 	</form>
 </body>

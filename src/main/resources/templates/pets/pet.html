@@ -10,6 +10,10 @@
 	<div th:text="'Birthdate: ' + ${pet.birthDate}"/>
 	<div th:text="'Commands: ' + ${pet.commands}"/>
 	
+	<form th:method="GET" th:action="@{/pets/{id}/edit(id=${pet.id})}">
+		<input type="submit" value="Edit"/>
+	</form>
+	
 	<form th:method="DELETE" th:action="@{/pets/{id}(id=${pet.id})}">
 		<input type="submit" value="Delete"/>
 	</form>

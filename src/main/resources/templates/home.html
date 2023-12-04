@@ -8,8 +8,14 @@
 <body>
 	<h1>Human friends</h1>
 	<img th:src="@{/images/Human_friends.jpg}"/><br/>
-	<a th:href="@{/pets}">Pets</a><br/>
-	<a th:href="@{/pack_animals}">Pack animals</a>
+	
+	<form th:method="GET" th:action="@{/pets}">
+		<input type="submit" value="Pets"/>
+	</form>
+	
+	<form th:method="GET" th:action="@{/pack_animals}">
+		<input type="submit" value="Pack animals"/>
+	</form>
 
 </body>
 </html>

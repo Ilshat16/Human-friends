@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New pet</title>
+<title>Edit pack animal</title>
 </head>
 <body>
-	<form th:method="POST" th:action="@{/pets}" th:object="${pet}">
+	<form th:method="PATCH" th:action="@{/pack_animals/{id}/edit(id=${packAnimal.id})}" th:object="${packAnimal}">
 		<label for="name">Enter name: </label>
 		<input type="text" th:field="*{name}" id="name"/><br/>
-
+		
 		<label for="type">Enter type: </label>
 		<input type="text" th:field="*{type}" id="type"/><br/>
 		
@@ -18,7 +18,7 @@
 		<label for="commands">Enter commands: </label>
 		<input type="text" th:field="*{commands}" id="name"/><br/>
 		
-		<input type="submit" value="Create"/>
+		<input type="submit" value="Update"/>
 		
 	</form>
 </body>

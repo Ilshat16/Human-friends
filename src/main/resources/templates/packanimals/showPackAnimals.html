@@ -8,7 +8,11 @@
 <body>
 	<h1>Pack animals</h1>
 	<img th:src="@{/images/Packanimals.jpg}"/><br/>
-		<a th:href="@{/pack_animals/new}">Add new pack animal</a>
+	
+	<form th:method="GET" th:action="@{/pack_animals/new}">
+		<input type="submit" value="Add new pack animal"/>
+	</form>
+	
 	<div th:each="packAnimal : ${packAnimals}">
 		<a th:href="@{/pack_animals/{id}(id=${packAnimal.id})}"
 			th:text="${packAnimal.id} + '. ' + ${packAnimal.name}"/>

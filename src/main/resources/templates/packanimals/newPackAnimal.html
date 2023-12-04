@@ -6,17 +6,17 @@
 </head>
 <body>
 	<form th:method="POST" th:action="@{/pack_animals}" th:object="${packAnimal}">
-		<input type="text" th:field="*{name}" id="name"/>
-		<label for="name">Enter name: </label><br/>
+		<label for="name">Enter name: </label>
+		<input type="text" th:field="*{name}" id="name"/><br/>
 		
-		<input type="text" th:field="*{type}" id="type"/>
-		<label for="type">Enter type: </label><br/>
+		<label for="type">Enter type: </label>
+		<input type="text" th:field="*{type}" id="type"/><br/>
 		
-		<input type="text" th:field="*{birthDate}" id="birthDate"/>
-		<label for="birthDate">Enter birth date: </label><br/>
+		<label for="birthDate">Enter birth date: </label>
+		<input type="text" th:field="*{birthDate}" id="birthDate"/><br/>
 		
-		<input type="text" th:field="*{commands}" id="name"/>
-		<label for="commands">Enter commands: </label><br/>
+		<label for="commands">Enter commands: </label>
+		<input type="text" th:field="*{commands}" id="name"/><br/>
 		
 		<input type="submit" value="Create"/>
 		

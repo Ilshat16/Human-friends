@@ -24,12 +24,18 @@ public class PackAnimalsServise {
 	}
 	
 	@Transactional
-	public void save(PackAnimals packAnimals) {
+	public void savePackAnimal(PackAnimals packAnimals) {
 		packAnimalRepository.save(packAnimals);
 	}
 	
 	@Transactional
-	public void deletePackAnimal(PackAnimals packAnimals) {
-		packAnimalRepository.delete(packAnimals);
+	public void deletePackAnimal(PackAnimals packAnimal) {
+		packAnimalRepository.delete(packAnimal);
+	}
+	
+	@Transactional
+	public void updatePackAnimal(PackAnimals packAnimal, long id) {
+		packAnimal.setId(id);
+		packAnimalRepository.save(packAnimal);
 	}
 }

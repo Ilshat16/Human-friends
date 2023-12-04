@@ -8,12 +8,15 @@
 <body>
 	<h1>Pets</h1>
 	<img th:src="@{/images/Pets.jpg}"/><br/>
-	<a th:href="@{/pets/new}">Add new pet</a>
+	
+	<form th:method="GET" th:action="@{/pets/new}">
+		<input type="submit" value="Add new pet"/>
+	</form>
+	
 	<div th:each="pet : ${pets}">
 		<a th:href="@{/pets/{id}(id=${pet.id})}"
 		th:text="${pet.id} + '. ' + ${pet.name}">pet</a>
 	</div>
-	<input type="submit"
 </div>
 </body>
 </html>

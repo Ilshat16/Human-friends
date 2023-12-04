@@ -24,12 +24,18 @@ public class PetsService {
 	}
 	
 	@Transactional
-	public void save(Pets pet) {
+	public void savePet(Pets pet) {
 		petRepository.save(pet);
 	}
 	
 	@Transactional
 	public void deletePet(Pets pet) {
 		petRepository.delete(pet);
+	}
+	
+	@Transactional
+	public void updatePet(Pets pet, long id) {
+		pet.setId(id);
+		petRepository.save(pet);
 	}
 }
