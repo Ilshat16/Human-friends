@@ -3,6 +3,7 @@ package controlwork.human_friend.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,6 +25,12 @@ public class PackAnimalsController {
 		return "packAnimals/showPackAnimals";
 	}
 	
+	@GetMapping("/{id}")
+	public String showPackAnimal(@PathVariable("id") long id, Model model) {
+		model.addAttribute("packAnimal", packAnimalsServise.findById(id));
+		return "packAnimals/packAnimal";
+	}
+	
 	@GetMapping("/new")
 	public String openFormForCreateNewPackAnimal(Model model) {
 		model.addAttribute("packAnimal", new PackAnimals());
@@ -33,6 +40,13 @@ public class PackAnimalsController {
 	@PostMapping
 	public String savePackAnimal(PackAnimals packAnimals) {
 		packAnimalsServise.save(packAnimals);
+		return "redirect:/pack_animals";
+	}
+	
+	@PostMapping("/{id}")
+	public String deletePackAnimal(@PathVariable("id") long id) {
+		PackAnimals packAnimal = packAnimalsServise.findById(id);
+		packAnimalsServise.deletePackAnimal(packAnimal);
 		return "redirect:/pack_animals";
 	}
 }

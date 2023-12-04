@@ -19,9 +19,17 @@ public class PackAnimalsServise {
 		return packAnimalRepository.findAll();
 	}
 	
+	public PackAnimals findById(long id) {
+		return packAnimalRepository.findById(id).orElse(null);
+	}
+	
 	@Transactional
 	public void save(PackAnimals packAnimals) {
 		packAnimalRepository.save(packAnimals);
 	}
-
+	
+	@Transactional
+	public void deletePackAnimal(PackAnimals packAnimals) {
+		packAnimalRepository.delete(packAnimals);
+	}
 }

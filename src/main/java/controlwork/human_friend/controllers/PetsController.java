@@ -2,7 +2,9 @@ package controlwork.human_friend.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,6 +27,12 @@ public class PetsController {
 		return "pets/showPets";
 	}
 	
+	@GetMapping("/{id}")
+	public String showPet(@PathVariable("id") long id, Model model) {
+		model.addAttribute("pet", petsService.findPetById(id));
+		return "pets/pet";
+	}
+	
 	@GetMapping("/new")
 	public String openFormForCreateNewPet(Model model) {
 		model.addAttribute("pet", new Pets());
@@ -34,6 +42,13 @@ public class PetsController {
 	@PostMapping
 	public String savePet(Pets pet) {
 		petsService.save(pet);
+		return "redirect:/pets";
+	}
+	
+	@PostMapping("/{id}")
+	public String deletePet(@PathVariable("id") long id) {
+		Pets pet = petsService.findPetById(id);
+		petsService.deletePet(pet);
 		return "redirect:/pets";
 	}
 

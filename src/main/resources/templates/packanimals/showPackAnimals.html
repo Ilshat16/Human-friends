@@ -10,7 +10,8 @@
 	<img th:src="@{/images/Packanimals.jpg}"/><br/>
 		<a th:href="@{/pack_animals/new}">Add new pack animal</a>
 	<div th:each="packAnimal : ${packAnimals}">
-		<p th:text="${packAnimal.id} + '. ' + ${packAnimal.name}"/>
+		<a th:href="@{/pack_animals/{id}(id=${packAnimal.id})}"
+			th:text="${packAnimal.id} + '. ' + ${packAnimal.name}"/>
 	</div>
 </body>
 </html>

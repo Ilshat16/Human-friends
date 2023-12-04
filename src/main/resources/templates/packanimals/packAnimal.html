@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pack animal</title>
+</head>
+<body>
+	<div th:text="'Name: ' + ${packAnimal.name}"/>
+	<div th:text="'Type: ' + ${packAnimal.type}"/>
+	<div th:text="'Birthdate: ' + ${packAnimal.birthDate}"/>
+	<div th:text="'Commands: ' + ${packAnimal.commands}"/>
+	
+	<form th:method="DELETE" th:action="@{/pack_animals/{id}(id=${packAnimal.id})}")>
+		<input type="submit" value="Delete"/>
+	</form>
+</body>
+</html>

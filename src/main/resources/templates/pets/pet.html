@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pet</title>
+</head>
+<body>
+	<div th:text="'Name: ' + ${pet.name}"/>
+	<div th:text="'Type: ' + ${pet.type}"/>
+	<div th:text="'Birthdate: ' + ${pet.birthDate}"/>
+	<div th:text="'Commands: ' + ${pet.commands}"/>
+	
+	<form th:method="DELETE" th:action="@{/pets/{id}(id=${pet.id})}">
+		<input type="submit" value="Delete"/>
+	</form>
+</body>
+</html>

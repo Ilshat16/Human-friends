@@ -10,7 +10,10 @@
 	<img th:src="@{/images/Pets.jpg}"/><br/>
 	<a th:href="@{/pets/new}">Add new pet</a>
 	<div th:each="pet : ${pets}">
-		<p th:text="${pet.id} + '. ' + ${pet.name}"/>
+		<a th:href="@{/pets/{id}(id=${pet.id})}"
+		th:text="${pet.id} + '. ' + ${pet.name}">pet</a>
 	</div>
+	<input type="submit"
+</div>
 </body>
 </html>
