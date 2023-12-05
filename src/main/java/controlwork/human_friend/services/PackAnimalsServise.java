@@ -24,7 +24,7 @@ public class PackAnimalsServise {
 	}
 	
 	@Transactional
-	public void savePackAnimal(PackAnimals packAnimals) {
+	public void createPackAnimal(PackAnimals packAnimals) {
 		packAnimalRepository.save(packAnimals);
 	}
 	

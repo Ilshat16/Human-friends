@@ -2,13 +2,16 @@ package controlwork.human_friend.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import controlwork.human_friend.models.PackAnimals;
 import controlwork.human_friend.services.PackAnimalsServise;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/pack_animals")
@@ -38,8 +41,13 @@ public class PackAnimalsController {
 	}
 	
 	@PostMapping
-	public String savePackAnimal(PackAnimals packAnimals) {
-		packAnimalsServise.savePackAnimal(packAnimals);
+	public String createPackAnimal(@ModelAttribute("packAnimal") @Valid PackAnimals packAnimal,
+			Errors errors) {
+		
+		if(errors.hasErrors())
+			return "packAnimals/newPackAnimal";
+		
+		packAnimalsServise.createPackAnimal(packAnimal);
 		return "redirect:/pack_animals";
 	}
 	
@@ -57,7 +65,11 @@ public class PackAnimalsController {
 	}
 	
 	@PostMapping("/{id}/edit")
-	public String updatePackAnimal(@PathVariable("id") long id, PackAnimals packAnimal) {
+	public String updatePackAnimal(@PathVariable("id") long id, 
+			@ModelAttribute("packAnimal") @Valid PackAnimals packAnimal, Errors errors) {
+		if(errors.hasErrors())
+			return "packAnimals/editPackAnimal";
+		
 		packAnimalsServise.updatePackAnimal(packAnimal, id);
 		return "redirect:/pack_animals";
 	}

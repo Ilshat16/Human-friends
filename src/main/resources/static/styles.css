@@ -2,3 +2,8 @@ img {
   height:400px;
   width:600px;
 }
+.validationError {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}

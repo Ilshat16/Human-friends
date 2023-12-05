@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>New pack animal</title>
+	<meta charset="UTF-8">
+	<title>New pack animal</title>
+	<link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
 	<form th:method="POST" th:action="@{/pack_animals}" th:object="${packAnimal}">
 		<label for="name">Enter name: </label>
-		<input type="text" th:field="*{name}" id="name"/><br/>
-		
+		<input type="text" th:field="*{name}" id="name"/>
+		<div class="validationError" th:if="${#fields.hasErrors('name')}"
+		 th:errors="*{name}">Name error</div><br/>
+
 		<label for="type">Enter type: </label>
-		<input type="text" th:field="*{type}" id="type"/><br/>
+		<input type="text" th:field="*{type}" id="type"/>
+		<div class="validationError" th:if="${#fields.hasErrors('type')}"
+		 th:errors="*{type}">Type error</div><br/>
 		
 		<label for="birthDate">Enter birth date: </label>
-		<input type="text" th:field="*{birthDate}" id="birthDate"/><br/>
+		<input type="text" th:field="*{birthDate}" id="birthDate"/>
+		<div class="validationError" th:if="${#fields.hasErrors('birthDate')}"
+		 th:errors="*{birthDate}">BirthDate error</div><br/>
 		
 		<label for="commands">Enter commands: </label>
 		<input type="text" th:field="*{commands}" id="name"/><br/>
